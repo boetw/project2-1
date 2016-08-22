@@ -33,15 +33,6 @@ app.use(function(req, res, next){
   next();
 });
 
-//API call
-app.get('/', function(req, res) {
-  var twitter = 'https://api.twitter.com/1.1/search/tweets.json';
-
-  request(twitter, function(error, response, body) {
-    var tweets = JSON.parse(body).results;
-    res.render('index', { tweets: tweets });
-  });
-});
 
 //restrict profile to loggedin people via middleware
 app.get('/profile', isLoggedIn, function(req, res) {

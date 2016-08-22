@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.category.hasMany(models.tweet);
-        models.category.belongsTo(models.user);
+      models.category.belongsToMany(models.tweet, {through: models.categoriesTweets});
+      models.category.belongsTo(models.user);
       }
     }
   });

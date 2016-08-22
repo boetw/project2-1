@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        models.tweet.belongsTo(models.category);
+      models.tweet.belongsToMany(models.category, {through: models.categoriesTweets});
       }
     }
   });

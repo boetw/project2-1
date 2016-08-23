@@ -6,8 +6,15 @@ var passport = require('./config/ppConfig.js');
 var flash = require('connect-flash');
 var isLoggedIn = require('./middleware/isLoggedIn');
 var request = require('request');
+var Twit = require('twit');
 var db = require('./models');
 var app = express();
+
+var T = new Twit({
+    consumer_key:         'process.env.TWITTER_CONSUMER_KEY'
+  , consumer_secret:      'process.env.TWITTER_CONSUMER_SECRET'
+  , app_only_auth:        true
+});
 
 app.set('view engine', 'ejs');
 

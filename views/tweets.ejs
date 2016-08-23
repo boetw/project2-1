@@ -1,0 +1,11 @@
+<div class="container">
+<% statuses.forEach(function(status){ %>
+  <div class="well">
+  <h3><%= status.user.name %></h3>
+  <h4><%= status.user.screen_name %></h4>
+  <p><%= status.text %></p>
+  <p></p>
+</div>
+<% }) %>
+  
+</div>

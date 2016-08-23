@@ -33,6 +33,9 @@ app.use(function(req, res, next){
   next();
 });
 
+app.get('/', function(req, res){
+  res.render('index');
+});
 
 //restrict profile to loggedin people via middleware
 app.get('/profile', isLoggedIn, function(req, res) {

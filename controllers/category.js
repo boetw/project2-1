@@ -3,32 +3,33 @@ var request = require('request');
 var router = express.Router();
 var db = require('../models');
 
-//GET /category page display all categories
+//GET /category page display all categories *COMPLETE*
 router.get('/', function(req, res) {
     // res.send('render a page of categories here'); -- ROUTE MADE & CONNECTED
 
     db.category.findAll().then(function(categories) {
         res.render('category', { categories: categories });
     }).catch(function(error) {
-        res.send('all category model error');
+        res.send(error);
     });
 
 });
 
-//GET category/new display form for creating a new category
+//GET * COMPLETE *
+// category/new display form for creating a new category  *COMPLETE*
 router.get('/new', function(req, res) {
     // res.send('render page with new category form'); // ROUTE MADE & CONNECTED
     res.render('new');
 });
 
-//POST 
-//Purpose: Receives the name of the category and adds it to database
+//POST *COMPLETE*
+//Purpose: Receives the name of the category and adds it to database 
 router.post('/new', function(req, res){
   db.category.create({
     name: req.body.name
   }).then(function(category){
     console.log(req.body);
-    res.redirect('category');
+    res.redirect('/category');
   }).catch(function(error){
     res.send('Category is not found');
   })

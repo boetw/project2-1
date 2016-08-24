@@ -1,11 +1,19 @@
+
 <div class="container">
+<h2><%=statuses.name%></h2>
 <% statuses.forEach(function(status){ %>
-  <div class="well">
+  <div class="well tweet col-md-6 col-md-offset-3">
   <h3><%= status.user.name %></h3>
-  <h4><%= status.user.screen_name %></h4>
-  <p><%= status.text %></p>
-  <p></p>
+  <h4>@<%= status.user.screen_name %></h4>
+  <p><%- status.text %></p>
+  <a href="<%= status.link %>"><%= status.link %></a>
+
 </div>
 <% }) %>
   
 </div>
+
+
+<!-- Capture Groups -->
+<!-- %- render as html
+%= render as string -->

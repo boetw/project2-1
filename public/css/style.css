@@ -1,1 +1,104 @@
-style.css
+
+
+body {
+  background-color: #FDB948;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  color: #000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Oswald', sans-serif;
+}
+
+/*a {
+  color: #000;
+}*/
+
+#new {
+  text-transform: uppercase;
+  background-color: #3AFDD7;
+  padding: 10px;
+  width: 200px;
+  margin-left: auto;
+  margin-left: auto;
+
+}
+
+#user-module {
+  background-color: #3AFDD7;
+}
+
+
+h2 a {
+  font-family: 'Oswald', sans-serif;
+  text-transform: uppercase;
+  font-size: 8vw;
+  color: #E66552;
+}
+
+h2 a:hover {
+  color: #E66552;
+}
+
+.tweet h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 42px;
+}
+.well {
+  background-color: #E66552;
+  border: none;
+  border-radius: 0;
+  /*margin: 50px;*/
+}
+
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #3AFDD7;
+  font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}
+
+.form-group {
+  background-color: #3AFDD7;
+}
+
+.btn-info {
+  background-color: #E66552;
+}
+
+#action-button {
+  border: 5px #E66552 solid;
+  width: 500px;
+  border-radius: 0;
+  color: #000;
+  display: block;
+  font-size: 2rem;
+  letter-spacing: 0.1rem;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#action-button::before {
+  content: "";
+  background-color: #3AFDD7;
+  position: absolute;
+  left: -1.9rem;
+  top: 1.5rem;
+  height: 4.30rem;
+  width: 100%;
+  z-index: -1;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+#action-button:hover::before {
+  left: 0;
+  top: 0;
+}
+
+
+
+/*FDAE53 orange
+2656A4 dark blue
+434EF2 purple*/

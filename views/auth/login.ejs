@@ -1,5 +1,7 @@
-<h2>Welcome back. Log in here.</h2>
+<div class="container col-lg-8 col-lg-offset-2">
+<h2 class="text-center">Welcome back. Log in here.</h2>
 <form action="/auth/login" method="POST">
+<div class="well" id="user-module">
   <div class="form-group">
     <label for="authEmail">Email</label>
     <input id="authEmail" class="form-control" type="email" name="email">
@@ -10,6 +12,8 @@
     <input id="authPassword" class="form-control" type="password" name="password">
   </div>
 
-  <input class="btn btn-primary" type="submit">
+  <input class="btn btn-large"  id ="action-button" type="submit">
 </form>
+</div>
 <a href="/auth/signup">Don't have a log-in? Sign up.</a>
+</div>

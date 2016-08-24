@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
-app.use(express.static(__dirname + "/public/"));
+app.use(express.static(__dirname + "/public"));
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'abcdefghijklmnopqrstuvwxyz',
@@ -41,7 +41,7 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-  res.render('index');
+  res.render('index.ejs');
 });
 
 //restrict profile to loggedin people via middleware

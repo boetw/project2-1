@@ -41,40 +41,43 @@ router.post('/new', function(req, res) {
         name: req.body.name
     }).then(function(category) {
         console.log(req.body);
-        res.redirect('/category');
+        res.redirect('/category/:name');
     }).catch(function(error) {
         res.send('Category is not found');
     })
 })
 
 
-//GET /category/:id a specific category and show all tweets associated
+//GET /category/:name a specific category and show all tweets associated
 router.get('/:name', function(req, res) {
     // res.send('render page with tweets associated to a category'); //--ROUTE MADE & CONNECTED
     var params = {
         q: req.params.name, //req.query.id
-        count: 10,
         lang: 'en',
+        truncated: true,
         result_type: 'mixed'
     };
-//request to Twitter
+    //request to Twitter
     T.get('search/tweets', params, function(err, data, response) {
         //var parsedData = JSON.parse(data);
-        // console.log(data.statuses[0].user)
-            //console.log(util.inspect(data));
-            // var statuses = JSON.parse(data);
-      console.log(data);
-      res.render('tweets', {statuses: data.statuses});
+        //console.log(util.inspect(data));
+        // var statuses = JSON.parse(data);
+        var regEx = /(https?:\/\/[^\s]+)/g;
+        var statuses = data.statuses;
+        console.log(data.statuses.text); //statuses is an array
 
-        // db.category.find({
-        //     where: { id: req.params.name },
-        // }).then(function(statuses) {
-        //     res.render('tweets', { statuses: statuses });
-        // }).catch(function(error){
-        //   res.send(error);
-        // });
-    }).catch(function(error){
-      res.send(error);
+        statuses.forEach(function(status){
+            status.text = status.text.replace(regEx, '<a href="$1">$1<\/a>');
+
+        });
+
+        console.log(typeof statuses)
+            // str.replace(regEx, '<a href="' + str + '">' + str + '<\/a>');
+
+        res.render('tweets', { statuses: data.statuses });
+
+    }).catch(function(error) {
+        res.send(error);
     });
 });
 

@@ -41,13 +41,16 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-  res.render('index.ejs');
+  // res.render('index');
+  res.send('hi');
+  
 });
 
 //restrict profile to loggedin people via middleware
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
+
 
 app.use('/auth', require('./controllers/auth'));
 app.use('/category', require('./controllers/category'));

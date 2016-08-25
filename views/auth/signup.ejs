@@ -1,4 +1,5 @@
 <h2>Smart Move! Sign up Here.</h2>
+<div class="well" id="user-module">
 <form action="/auth/signup" method="POST">
   <div class="form-group">
     <label for="authEmail">Email</label>
@@ -15,7 +16,8 @@
     <input id="authPassword" class="form-control" type="password" name="password">
   </div>
 
-  <input class="btn btn-primary" type="submit">
+  <input class="btn" id="action-button" type="submit">
 </form>
+</div>
 
 <a href="/auth/login">Already have an Account?</a>

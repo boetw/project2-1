@@ -1,6 +1,7 @@
 var express = require('express');
 var request = require('request');
 var Twit = require('twit');
+var isLoggedIn = require('../middleware/isLoggedIn');
 var router = express.Router();
 var db = require('../models');
 
@@ -12,11 +13,10 @@ var T = new Twit({
     app_only_auth: true
 });
 
-const util = require('util');
 
 //GET *COMPLETE*
 //category page display all categories 
-router.get('/', function(req, res) {
+router.get('/', isLoggedIn, function(req, res) {
     // res.send('render a page of categories here'); -- ROUTE MADE & CONNECTED
 
     db.category.findAll().then(function(categories) {
@@ -54,7 +54,7 @@ router.get('/:name', function(req, res) {
     var params = {
         q: req.params.name, //req.query.id
         lang: 'en',
-        truncated: true,
+        truncated: false,
         result_type: 'mixed'
     };
     //request to Twitter
@@ -64,17 +64,14 @@ router.get('/:name', function(req, res) {
         // var statuses = JSON.parse(data);
         var regEx = /(https?:\/\/[^\s]+)/g;
         var statuses = data.statuses;
-        console.log(data.statuses.text); //statuses is an array
+        // console.log(data.statuses.text); //statuses is an array
 
         statuses.forEach(function(status){
             status.text = status.text.replace(regEx, '<a href="$1">$1<\/a>');
 
         });
 
-        console.log(typeof statuses)
-            // str.replace(regEx, '<a href="' + str + '">' + str + '<\/a>');
-
-        res.render('tweets', { statuses: data.statuses });
+        res.render('tweets', { statuses: data.statuses, name: params.q });
 
     }).catch(function(error) {
         res.send(error);
@@ -83,7 +80,6 @@ router.get('/:name', function(req, res) {
 
 
 
-//go into statuses loop through statuses array and 
 
 // DELETE A CATEGORY
 

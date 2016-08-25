@@ -10,18 +10,18 @@ var Twit = require('twit');
 var db = require('./models');
 var app = express();
 
+app.set('view engine', 'ejs');
+
 var T = new Twit({
     consumer_key:         'process.env.TWITTER_CONSUMER_KEY'
   , consumer_secret:      'process.env.TWITTER_CONSUMER_SECRET'
   , app_only_auth:        true
 });
 
-app.set('view engine', 'ejs');
-
+app.use(express.static(__dirname + "/public"));
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
-app.use(express.static(__dirname + "/public"));
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'abcdefghijklmnopqrstuvwxyz',
@@ -41,9 +41,8 @@ app.use(function(req, res, next){
 });
 
 app.get('/', function(req, res){
-  // res.render('index');
-  res.send('hi');
-  
+  // console.log('hit root route');
+  res.render('index');
 });
 
 //restrict profile to loggedin people via middleware
@@ -54,7 +53,6 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 app.use('/auth', require('./controllers/auth'));
 app.use('/category', require('./controllers/category'));
-
 
 var server = app.listen(process.env.PORT || 3000);
 

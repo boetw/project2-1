@@ -34,23 +34,20 @@ router.get('/new', function(req, res) {
     res.render('new');
 });
 
-//POST *COMPLETE*
-//Purpose: Receives the name of the category and adds it to database 
+//POST *COMPLETE* //Purpose: Receives the name of the category and adds it to database 
 router.post('/new', function(req, res) {
     db.category.create({
         name: req.body.name
     }).then(function(category) {
         console.log(req.body);
-        res.redirect('/category/:name');
+        res.redirect('/category');
     }).catch(function(error) {
         res.send('Category is not found');
     })
 })
 
-
 //GET /category/:name a specific category and show all tweets associated
 router.get('/:name', function(req, res) {
-    // res.send('render page with tweets associated to a category'); //--ROUTE MADE & CONNECTED
     var params = {
         q: req.params.name, //req.query.id
         lang: 'en',
@@ -59,9 +56,7 @@ router.get('/:name', function(req, res) {
     };
     //request to Twitter
     T.get('search/tweets', params, function(err, data, response) {
-        //var parsedData = JSON.parse(data);
-        //console.log(util.inspect(data));
-        // var statuses = JSON.parse(data);
+
         var regEx = /(https?:\/\/[^\s]+)/g;
         var statuses = data.statuses;
         // console.log(data.statuses.text); //statuses is an array
@@ -78,15 +73,11 @@ router.get('/:name', function(req, res) {
     });
 });
 
-
-
-
 // DELETE A CATEGORY
-
-router.post('/delete', function(req, res) {
+router.delete('/:name', function(req, res) {
     db.category.destroy({
         where: {
-            categoryName: req.body.name
+            name: req.body.name
         }
     }).then(function(category) {
         res.redirect('/category');

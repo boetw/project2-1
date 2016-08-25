@@ -1,19 +1,31 @@
   
-
-  <div class="container-fluid" >
+  <div class="wrapper">
+    
+  <div class="row" >
   <p><a class="btn btn-lg text-center col-s-2 col-md-6 col-md-offset-3 " id="action-button" href="category/new" role="button">Add a New Category</a></p>
    </div>
 
 
-<div class="container col">
+<div class="container">
 
     <% categories.forEach(function(category){ %>
 
         <h2><a href="/category/<%= category.name %>"><%= category.name %></h2>
-<!--         <form method="POST" action="/pokemon/delete">
-        <input hidden type="text" name="name" value="<%= category.categoryName %>">
-        <button class="btn btn-danger" name="delete-link">Delete Category</button>
-      </form> -->
+          <a href="/category/<%= category.name %>" class="btn btn-danger delete-btn">x</a>
 
     <% }); %>
 </div>
+
+<ul class="bg-bubbles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  </div>

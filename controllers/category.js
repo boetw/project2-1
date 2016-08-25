@@ -77,10 +77,11 @@ router.get('/:name', function(req, res) {
 router.delete('/:name', function(req, res) {
     db.category.destroy({
         where: {
-            name: req.body.name
+            name: req.params.name
         }
-    }).then(function(category) {
-        res.redirect('/category');
+    }).then(function() {
+        res.send('true');
+        // res.redirect('/category');
     });
 });
 

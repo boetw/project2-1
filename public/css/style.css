@@ -8,19 +8,20 @@ body {
 }
 
 .container {
+  position: relative;
   margin-left: auto;
   margin-right: auto;
 }
 
-h1 {
-  text-transform: uppercase;
+.input-group {
+  margin-top: 20px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
 }
 
-h2 a {
+h1,h2 a {
   font-family: 'Oswald', sans-serif;
   text-transform: uppercase;
   font-size: 8vw;
@@ -30,6 +31,7 @@ h2 a {
 h2 a:hover {
   color: #E66552;
 }
+
 
 .tweet h3 {
   font-family: 'Oswald', sans-serif;
@@ -59,11 +61,15 @@ a {
   background-color: #E66552;
   border: none;
   border-radius: 0;
-  /*margin: 50px;*/
+
 }
 
 .tweet {
   padding: 25px;
+}
+
+#profile-links a {
+    color: #E66552
 }
 
 
@@ -85,7 +91,8 @@ a {
 
 #action-button {
   border: 5px #E66552 solid;
-  /*width: 50%;*/
+  width: 325px;
+  /*left: 30%;*/
   border-radius: 0;
   color: #000;
   display: block;
@@ -96,6 +103,8 @@ a {
   text-decoration: none;
   text-transform: uppercase;
   margin-bottom: 30px;
+  float: none;
+  margin: 0 auto;
 }
 #action-button::before {
   content: "";
@@ -234,3 +243,4 @@ a {
   }
 }
 
+heroku config:set NODE_ENV='production'

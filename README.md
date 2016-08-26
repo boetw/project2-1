@@ -1,27 +1,41 @@
-# Express Authentication
+# Twittergories
 
-Express authentication template using Passport + flash messages + custom middleware
+## About
+
+Be an active participant in the topics that matter to you. Easily search for topics and our algorithms scour the Twittersphere to determine a crowd-sourced definition, giving you insight into the way the world thinks at this moment in time. Save the results as a continuously updating stream.
 
 ## Getting Started
 
-#### Scaffold w/tests (see `master` branch)
 
 * Run `npm install` to install dependencies
   * Use `npm run lint:js` to lint your JS
   * Use `npm run lint:css` to lint your CSS
   * Use `npm test` to run tests
-* Setup the databases
-  * Change the database names in `config/config.json` to reflect your project
-  * Run `createdb project_name_development` to create the development database
-  * Run `createdb project_name_test` to create the test database
 
-#### Finished version (see `brian-finished` branch)
 
-* Run `npm install` to install dependencies
-  * Use `npm run lint:js` to lint your JS
-  * Use `npm run lint:css` to lint your CSS
-  * Use `npm test` to run tests
-* Setup the databases
-  * Run `createdb express_auth_development` to create the development database
-  * Run `createdb express_auth_test` to create the test database
-  * Run `sequelize db:migrate` to run migrations
+## Technologies Used
+
+    * HTML
+    * CSS
+    * Bootstrap
+    * JavaScript
+    * jQuery
+    * Express
+    * Sequelize
+    * Passport
+    * Twit
+    * EJS
+
+## Demo
+[Twittergories](https://twittergories.herokuapp.com))
+
+## Best Experience
+Playing around with css animations
+
+## Worst Experience
+Figuring out how to do Twitter authentication
+
+## Additional Updates to Be Made
+* Add additional views(@mentions, overall trends)
+* Layout a better profile page and additional css edits
+* Have categories only show for user that created it

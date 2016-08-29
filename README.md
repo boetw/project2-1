@@ -27,15 +27,9 @@ Be an active participant in the topics that matter to you. Easily search for top
     * EJS
 
 ## Demo
-[Twittergories](https://twittergories.herokuapp.com))
-
-## Best Experience
-Playing around with css animations
-
-## Worst Experience
-Figuring out how to do Twitter authentication
+[Twittergories](https://twittergories.herokuapp.com)
 
 ## Additional Updates to Be Made
 * Add additional views(@mentions, overall trends)
 * Layout a better profile page and additional css edits
-* Have categories only show for user that created it
+* Allow use of functionality, before signing up. If they would like to save the tracking, then prompt signup. Have categories only show for user that created it
